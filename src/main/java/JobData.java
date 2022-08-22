@@ -98,22 +98,18 @@ public class JobData {
         // TODO - implement this method - search keys -maybe keyset, then search .values
         ArrayList<HashMap<String, String>> jobs2 = new ArrayList<>();
 
-        for (int i = 0; i <someJobs.size(); i++) {
-            System.out.println("\n*****");
-            for (Map.Entry<String, String> job2 : someJobs.get(i).entrySet()) {
+        for (int i = 0; i <allJobs.size(); i++) {
 
-                System.out.println(job2.getKey() + ": " + job2.getValue());
+            for (Map.Entry<String, String> job : allJobs.get(i).entrySet()) {
+                if (job.getKey().toLowerCase().contains(value.toLowerCase()) || job.getValue().toLowerCase().contains(value.toLowerCase())) {
+                    if (!jobs2.contains(allJobs.get(i))) {
+                        jobs2.add(allJobs.get(i));
+                    }
+                }
             }
-            System.out.println("*****");
+
         }
 
-        for (HashMap<String, String> row : allJobs) {
-            String searchValue = row.;
-
-            if (value.toLowerCase().contains(searchValue.toLowerCase())) {
-                jobs2.add(row);
-            }
-        }
         return jobs2;
         //return null;
     }
